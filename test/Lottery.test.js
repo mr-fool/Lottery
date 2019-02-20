@@ -11,6 +11,7 @@ const { abi, evm } = require('../compile');
 let accounts;
 let lottery;
 
+console.log(abi);
 
 beforeEach( async () => {
     //Get a list of all accounts
@@ -21,7 +22,11 @@ beforeEach( async () => {
         lottery = await new web3.eth.Contract(abi)
             .deploy(   {data:  evm.bytecode.object })
             .send({ from: accounts[0], gas: '1000000' })
-    
-    
     });
-    
+
+
+    describe('Lottery Contract', () => {
+        it('deploys a contract', () => {
+            assert.ok(lottery.options.address);
+        });
+    } );
