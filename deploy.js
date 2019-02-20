@@ -15,7 +15,7 @@ const deploy = async () => {
     console.log('Attempting to deploy from account', accounts[0]);
 
     const result = await new web3.eth.Contract(abi)
-    .deploy({data: '0x' + evm.bytecode.object , arguments: ['Hi there!']}) // add 0x bytecode
+    .deploy({data: '0x' + evm.bytecode.object }) // add 0x bytecode
     .send({from: accounts[0], gas: '2500000'}); // remove 'gas'
 
 

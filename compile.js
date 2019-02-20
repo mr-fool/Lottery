@@ -5,8 +5,8 @@ const solc = require('solc');
 var input = {
 	language: 'Solidity',
 	sources: {
-		'inbox.sol': {
-			content:  fs.readFileSync("contracts/inbox.sol",'utf-8')
+		'Lottery.sol': {
+			content:  fs.readFileSync("contracts/Lottery.sol",'utf-8')
 		}
 	},
 	settings: {
@@ -27,4 +27,4 @@ var output = JSON.parse(solc.compile(JSON.stringify(input)));
 
 //console.log(output.contracts);
 
-module.exports = output.contracts["inbox.sol"].Inbox;
+module.exports = output.contracts["Lottery.sol"].Lottery;
